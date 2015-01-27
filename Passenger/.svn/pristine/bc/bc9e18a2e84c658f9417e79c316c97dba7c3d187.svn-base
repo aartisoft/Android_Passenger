@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:splitMotionEvents="false" >
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio_btn_current_booking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:button="@drawable/current_booking_tab_act" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/radio_btn_current_trip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:button="@drawable/current_trip_tab" />
+
+        <RadioButton
+            android:id="@+id/radio_btn_future_booking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:button="@drawable/future_booking_tab"
+            android:visibility="gone" />
+
+        <RadioButton
+            android:id="@+id/radio_btn_past_booking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:button="@drawable/past_booking_tab" />
+    </RadioGroup>
+
+    <ListView
+        android:id="@+id/lst_view_my_booking"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/radio_group"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:divider="@color/white"
+        android:dividerHeight="3dip"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" >
+    </ListView>
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_future_booking"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/radio_group"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Coming soon"
+        android:textSize="70sp"
+        android:visibility="invisible"
+        customview:fontName="HELSH__.TTF" >
+    </com.netcabs.customview.NetCabsTextView>
+
+</RelativeLayout>

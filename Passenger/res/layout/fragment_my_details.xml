@@ -1,0 +1,226 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nc_bg"
+    android:splitMotionEvents="false" >
+
+    <EditText
+        android:id="@+id/ed_txt_first_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ed_txt_last_name"
+        android:layout_alignRight="@+id/ed_txt_last_name"
+        android:layout_marginBottom="@dimen/margin_top_left"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/img_view_user_pic"
+        android:background="@drawable/m_name_text_line"
+        android:hint="@string/first_name"
+        android:inputType="textCapSentences"
+        android:paddingLeft="6dip"
+        android:paddingRight="6dip"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/water_mark" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/ed_txt_email_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_view_user_pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_top_left"
+        android:background="@drawable/l_text_line"
+        android:ems="10"
+        android:hint="@string/email_address"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="6dip"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/water_mark" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-10dip"
+        android:src="@drawable/login_bg" />
+
+    <Button
+        android:id="@+id/btn_update_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/update_pin_btn" />
+
+    <RelativeLayout
+        android:id="@+id/relative_logintype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ed_txt_email_address"
+        android:layout_alignRight="@+id/ed_txt_email_address"
+        android:layout_below="@+id/btn_update_pin"
+        android:splitMotionEvents="false" >
+
+        <Button
+            android:id="@+id/btn_login_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dip"
+            android:background="@drawable/logged_fb"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/ed_txt_current_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dip"
+            android:background="@drawable/l_text_line"
+            android:hint="@string/current_password"
+            android:inputType="textPassword"
+            android:paddingLeft="6dip"
+            android:paddingRight="6dip"
+            android:textColor="@color/warmgray11"
+            android:textColorHint="@color/water_mark" />
+
+        <EditText
+            android:id="@+id/ed_txt_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/ed_txt_current_password"
+            android:layout_below="@+id/ed_txt_current_password"
+            android:layout_marginTop="@dimen/margin_top_left"
+            android:background="@drawable/l_text_line"
+            android:hint="@string/new_password"
+            android:inputType="textPassword"
+            android:paddingLeft="6dip"
+            android:paddingRight="6dip"
+            android:textColor="@color/warmgray11"
+            android:textColorHint="@color/water_mark" />
+
+        <EditText
+            android:id="@+id/ed_txt_confirm_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/ed_txt_password"
+            android:layout_below="@+id/ed_txt_password"
+            android:layout_marginTop="@dimen/margin_top_left"
+            android:background="@drawable/l_text_line"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:paddingLeft="6dip"
+            android:paddingRight="6dip"
+            android:textColor="@color/warmgray11"
+            android:textColorHint="@color/water_mark" />
+    </RelativeLayout>
+
+    <Spinner
+        android:id="@+id/spinner_country"
+        android:layout_width="0dip"
+        android:layout_height="0dip"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/linear_layout_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/relative_logintype"
+        android:layout_below="@+id/relative_logintype"
+        android:layout_marginTop="@dimen/margin_top_left"
+        android:background="@drawable/m_name_text_line"
+        android:splitMotionEvents="false" >
+
+        <ImageView
+            android:id="@+id/img_view_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/flag_img" />
+
+        <com.netcabs.customview.NetCabsTextView
+            android:id="@+id/txt_view_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:hint="@string/country"
+            android:maxLength="20"
+            android:paddingLeft="6dip"
+            android:textColor="@color/warmgray11"
+            android:textColorHint="@color/water_mark"
+            android:textSize="18sp"
+            customview:fontName="HELSH__.TTF" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_view_country3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linear_layout_country"
+        android:layout_alignRight="@+id/linear_layout_country"
+        android:background="@drawable/pointer_gray" />
+
+    <EditText
+        android:id="@+id/ed_txt_zip_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/ed_txt_contact_number"
+        android:layout_below="@+id/relative_logintype"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/margin_top_left"
+        android:layout_toRightOf="@+id/img_view_country3"
+        android:background="@drawable/s_text_line"
+        android:gravity="center"
+        android:hint="@string/zip"
+        android:inputType="number"
+        android:paddingLeft="6dip"
+        android:textColor="@color/warmgray11"
+        android:textColorHint="@color/water_mark" />
+
+    <ImageView
+        android:id="@+id/img_view_user_pic"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_alignLeft="@+id/ed_txt_email_address"
+        android:layout_marginTop="30dip"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_holdar" />
+
+    <EditText
+        android:id="@+id/ed_txt_last_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ed_txt_email_address"
+        android:layout_alignRight="@+id/ed_txt_email_address"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/img_view_user_pic"
+        android:background="@drawable/m_name_text_line"
+        android:hint="@string/last_name"
+        android:inputType="textCapSentences"
+        android:paddingLeft="6dip"
+        android:paddingRight="6dip"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/water_mark" />
+
+    <EditText
+        android:id="@+id/ed_txt_contact_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linear_layout_country"
+        android:layout_below="@+id/linear_layout_country"
+        android:layout_marginTop="@dimen/margin_top_left"
+        android:background="@drawable/l_text_line"
+        android:ems="10"
+        android:hint="@string/contact_number"
+        android:inputType="phone"
+        android:paddingLeft="6dip"
+        android:paddingRight="6dip"
+        android:textColor="@color/warmgray11"
+        android:textColorHint="@color/water_mark" />
+
+</RelativeLayout>

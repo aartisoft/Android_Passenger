@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Oiii</string>
+    <string name="facebook_app_id">645595928880791</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_registation">RegistationActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+    <string name="user_name">User name</string>
+    <string name="password">Password</string>
+    <string name="new_password">New Password</string>
+    <string name="current_password">Current password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="lost_password">Lost password ?\n Click Here</string>
+    <string name="not_account">Don\'t have an account ?</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email_address">Email address</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="contact_number">Contact number</string>
+    <string name="country">Country</string>
+    <string name="zip">Postcode</string>
+    <string name="card_name">Card holder name</string>
+    <string name="passenger_name">Passenger name</string>
+    <string name="exp">Exp</string>
+    <string name="cvv">CVV</string>
+    <string name="new_account">New account</string>
+    <string name="enter_pin">Please enter you PIN</string>
+    <string name="title_activity_confirm_registration">ConfirmRegistrationActivity</string>
+    <string name="welcome_back">Varify your phone number</string>
+    <string name="register_now">Register now</string>
+    <string name="lost_pin">Lost your PIN ?\nClick Here</string>
+    <string name="exp_hints">mm/yyyy</string>
+    <string name="cvv_hints">000</string>
+    <string name="optional">Optional for auto pay</string>
+    <string name="click_here"><u><b>Let\'s fix it!</b></u></string>
+
+    <color name="title">#FFFFFF</color>
+    <color name="water_mark">#A0A0A0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#5D5D5D</color>
+    <color name="address_color">#EDECF1</color>
+    <color name="edit_text_color">#706359</color>
+    <color name="blue">#008CD1</color>
+    <color name="darkred">#9E3039</color>
+    <color name="warmgray11">#706359</color>
+    <color name="light_green">#F0F7DF</color>
+    <color name="warm_gray4">#B7ADA5</color>
+
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="pickup_location">Enter pickup location</string>
+    <string name="destination_location">Enter destination location</string>
+    <string name="title_activity_card_registration">CardRegistrationActivity</string>
+    <string name="title_activity_pick_up_location_search">PickUpLocationSearchActivity</string>
+    <string name="title_activity_confirm_booking">ConfirmBookingActivity</string>
+    <string name="title_activity_my_booking_details">MyBookingDetailsActivity</string>
+    <string name="title_activity_payment_card_edit">PaymentCardEditActivity</string>
+    <string name="title_activity_confirm_booking_search">ConfirmBookingSearchActivity</string>
+    <string name="title_activity_user_enter_pin">UserEnterPinActivity</string>
+    <string name="title_activity_user_enter_pin_confirm">UserEnterPinConfirmActivity</string>
+    <string name="title_activity_pickup_address">PickupAddressActivity</string>
+    <string name="title_activity_destination_address">DestinationAddressActivity</string>
+    <string name="title_activity_past_booking_details">PastBookingDetailsActivity</string>
+    <string name="title_activity_share_with_friend">ShareWithFriendActivity</string>
+    <string name="title_activity_friend_search">FriendSearchActivity</string>
+    <string name="title_activity_login_with_pin">LoginWithPinActivity</string>
+    <string name="title_activity_hailed_cab_details">HailedCabDetailsActivity</string>
+    <string name="title_activity_support_details">SupportDetailsActivity</string>
+
+</resources>

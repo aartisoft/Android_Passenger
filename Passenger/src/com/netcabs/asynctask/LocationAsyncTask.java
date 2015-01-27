@@ -1,0 +1,83 @@
+package com.netcabs.asynctask;
+
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+
+import com.netcabs.interfacecallback.OnComplete;
+import com.netcabs.json.JSONParser;
+
+public class LocationAsyncTask extends AsyncTask<Void, Void, Void> {
+	String url;
+	private OnComplete callback;
+	JSONObject json;
+	String[] search_text;
+	JSONArray contacts = null;
+	ArrayList<String> names;
+	ArrayAdapter<String> adp;
+	ArrayList<String> refId;
+	private static final String TAG_RESULT = "predictions";
+
+	public LocationAsyncTask(Activity context, String URL, OnComplete callback2, String[] text, double Lat, double Long) {
+		this.callback = (OnComplete) callback2;
+		url = URL;
+		names = new ArrayList<String>();
+		refId = new ArrayList<String>();
+	
+	}
+
+	@Override
+	protected void onPreExecute() {
+		super.onPreExecute();
+		//progressDialog = ProgressDialog.show(activity, "", "Loading...", true, false);
+	}
+
+	@Override
+	protected Void doInBackground(Void... params) {
+		JSONParser jParser = new JSONParser();
+		// getting JSON string from URL
+		json = jParser.getJSONFromUrl(url.toString());
+		Log.i("url", "**" + url);
+		Log.i("RESPONSE", "**" + json);
+		if (json != null) {
+			try {
+				// Getting Array of Contacts
+				contacts = json.getJSONArray(TAG_RESULT);
+				for (int i = 0; i < contacts.length(); i++) {
+					JSONObject c = contacts.getJSONObject(i);
+					String description = c.getString("description");
+					String reference = c.getString("reference");
+					Log.d("description", description);
+					names.add(description);
+					refId.add(reference);
+
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return null;
+	}
+
+	@Override
+	protected void onPostExecute(Void result) {
+		super.onPostExecute(result);
+		try {
+			callback.onComplete(1, names, refId);
+		} catch (Exception e) {
+			
+		}
+		
+		
+	}
+
+}

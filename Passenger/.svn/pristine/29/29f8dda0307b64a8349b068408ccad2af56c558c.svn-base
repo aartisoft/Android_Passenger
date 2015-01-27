@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/back"
+        style="@style/CardListBackContent"
+        android:gravity="center_vertical|right"
+        android:tag="back" >
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/delete_btn" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/front"
+        style="@style/CardListFrontContent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:tag="front" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white" >
+
+            <ImageView
+                android:id="@+id/img_view_card_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip"
+                android:background="@drawable/card_image" />
+
+            <com.netcabs.customview.NetCabsTextView
+                android:id="@+id/txt_view_card_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/img_view_card_logo"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dip"
+                android:layout_toLeftOf="@+id/img_view_select"
+                android:layout_toRightOf="@+id/img_view_card_logo"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#000000"
+                customview:fontName="HELSH__.TTF" />
+
+            <ImageView
+                android:id="@+id/img_view_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/selete_icon" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:splitMotionEvents="false" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hailed_car_img" />
+
+        <com.netcabs.customview.NetCabsTextView
+            android:id="@+id/txt_view_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dip"
+            android:gravity="center"
+            android:text="Please enter the registration number of the taxi you are in. If you are unsure of the registration, please ask the driver."
+            android:textColor="@color/warmgray11"
+            android:textSize="@dimen/text_msg"
+            customview:fontName="HELSH__.TTF" />
+
+        <EditText
+            android:id="@+id/ed_txt_taxi_reg_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dip"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1"
+            android:background="@drawable/rego_number_holdar"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Taxi Registration"
+            android:imeOptions="actionDone"
+            android:inputType="textCapSentences"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:singleLine="true"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/water_mark"
+            android:textSize="22sp" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/submit_btn" />
+    </LinearLayout>
+
+</RelativeLayout>

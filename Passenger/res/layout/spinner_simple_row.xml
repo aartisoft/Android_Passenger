@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="3dp" >
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_payment_method_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ellipsize="end"
+        android:ems="10"
+        android:maxLines="1"
+        android:paddingLeft="2dip"
+        android:textColor="@color/warmgray11"
+        customview:fontName="HELSH__.TTF" />
+
+</LinearLayout>

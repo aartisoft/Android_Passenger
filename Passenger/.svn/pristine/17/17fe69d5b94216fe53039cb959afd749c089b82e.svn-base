@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:splitMotionEvents="false" >
+
+    <LinearLayout
+        android:id="@+id/linear_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:splitMotionEvents="false" >
+
+        <Button
+            android:id="@+id/btn_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/map_btn_y" />
+
+        <Button
+            android:id="@+id/btn_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/list_btn_w" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lst_view_taxi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_book_now"
+        android:layout_below="@+id/linear_top"
+        android:layout_centerHorizontal="true"
+        android:background="@color/white"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp"
+        android:scrollbars="none"
+        android:visibility="gone" >
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/relative_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linear_top"
+        android:splitMotionEvents="false" >
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </com.google.android.gms.maps.MapView>
+
+        <View
+            android:id="@+id/pin_invisible"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/pin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/pin_invisible"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/location_point" />
+
+        <com.netcabs.customview.NetCabsTextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/pin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Pickup location"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            customview:fontName="HELSH__.TTF" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_book_now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/book_btn" />
+
+</RelativeLayout>

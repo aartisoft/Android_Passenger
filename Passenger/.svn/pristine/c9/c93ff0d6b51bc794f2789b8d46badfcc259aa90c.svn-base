@@ -1,0 +1,128 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nc_pin_bg"
+    android:gravity="center_vertical"
+    android:splitMotionEvents="false" >
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_welcome_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_view_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dip"
+        android:duplicateParentState="true"
+        android:text="@string/welcome_back"
+        android:textColor="@color/darkred"
+        android:textSize="20sp"
+        customview:fontName="HELSH__.TTF" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_view_welcome_back"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_top_left"
+        android:duplicateParentState="true"
+        android:text="Please enter the code that was"
+        android:textColor="@color/darkred"
+        customview:fontName="HELSH__.TTF" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_mobile_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_view_user_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dip"
+        android:duplicateParentState="true"
+        android:textColor="@color/darkred"
+        customview:fontName="HELSH__.TTF" />
+
+    <LinearLayout
+        android:id="@+id/linear_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_view_mobile_no"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:splitMotionEvents="false" >
+
+        <EditText
+            android:id="@+id/ed_txt_pin_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pin_holdar"
+            android:gravity="center"
+            android:imeOptions="actionPrevious"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textColor="@color/blue"
+            android:textStyle="bold" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/ed_txt_pin_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/pin_holdar"
+            android:gravity="center"
+            android:imeOptions="actionPrevious"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textColor="@color/blue"
+            android:textStyle="bold" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/ed_txt_pin_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/pin_holdar"
+            android:gravity="center"
+            android:imeOptions="actionPrevious"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textColor="@color/blue"
+            android:textStyle="bold" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/ed_txt_pin_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pin_holdar"
+            android:gravity="center"
+            android:imeOptions="actionPrevious"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textColor="@color/blue"
+            android:textStyle="bold" >
+        </EditText>
+    </LinearLayout>
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_lost_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/send_again_btn"
+        android:duplicateParentState="true"
+        customview:fontName="HELSH__.TTF" />
+
+</RelativeLayout>

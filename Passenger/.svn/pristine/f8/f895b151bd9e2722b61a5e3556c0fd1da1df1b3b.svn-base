@@ -1,0 +1,246 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/confirm_booking_bg"
+    android:splitMotionEvents="false" >
+
+    <RelativeLayout
+        android:id="@+id/relative_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/nc_tob_bar"
+        android:splitMotionEvents="false" >
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back_btn" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/save_btn"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/btn_save"
+            android:layout_toRightOf="@+id/btn_back"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.netcabs.customview.NetCabsTextView
+                android:id="@+id/txt_view_location_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                android:duplicateParentState="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="location name"
+                android:textColor="@color/title"
+                android:textSize="@dimen/title_font_size"
+                customview:fontName="HELSH__.TTF" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/confirm_btn" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_top"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dip"
+        android:background="@drawable/rego_bar"
+        android:gravity="right|center_vertical" >
+
+        <com.netcabs.customview.NetCabsTextView
+            android:id="@+id/txt_view_reg_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/rego_text_holdar"
+            android:duplicateParentState="true"
+            android:gravity="center"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            customview:fontName="HELSH__.TTF" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/ed_txt_passenger_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/l_text_line"
+        android:ellipsize="end"
+        android:ems="10"
+        android:hint="@string/passenger_name"
+        android:inputType="textCapWords"
+        android:lines="1"
+        android:maxLines="1"
+        android:paddingLeft="6dip"
+        android:paddingRight="6dip"
+        android:singleLine="true"
+        android:textColor="@color/edit_text_color"
+        android:textColorHint="@color/water_mark" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ed_txt_passenger_name"
+        android:layout_alignRight="@+id/ed_txt_passenger_name"
+        android:layout_below="@+id/ed_txt_passenger_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_top_left"
+        android:background="@drawable/l_text_line"
+        android:duplicateParentState="true"
+        android:ellipsize="end"
+        android:ems="10"
+        android:hint="@string/destination_location"
+        android:maxLines="1"
+        android:paddingLeft="6dip"
+        android:textColor="@color/edit_text_color"
+        customview:fontName="HELSH__.TTF" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_parcel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_parcel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:duplicateParentState="true"
+        android:text="Parcel"
+        android:textColor="@color/warmgray11"
+        customview:fontName="HELSH__.TTF" />
+
+    <Button
+        android:id="@+id/btn_parcel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txt_view_passenger"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/no_btn" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_passenger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linear_passenger"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:duplicateParentState="true"
+        android:text="Passengers"
+        android:textColor="@color/warmgray11"
+        customview:fontName="HELSH__.TTF" />
+
+    <LinearLayout
+        android:id="@+id/linear_passenger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_confirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:splitMotionEvents="false" >
+
+        <Button
+            android:id="@+id/btn_passenger_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/number"
+            android:text="1"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_passenger_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_top_left"
+            android:layout_marginRight="@dimen/margin_top_left"
+            android:background="@drawable/number"
+            android:text="2"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_passenger_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_top_left"
+            android:background="@drawable/number"
+            android:text="3"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_passenger_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/number"
+            android:text="4"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinner_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_view_destination"
+        android:layout_alignRight="@+id/txt_view_destination"
+        android:layout_below="@+id/txt_view_destination"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/l_text_line"
+        android:drawSelectorOnTop="false"
+        android:dropDownSelector="@android:color/transparent"
+        android:dropDownVerticalOffset="1dp"
+        android:padding="2dp"
+        android:popupBackground="@color/light_green"
+        android:spinnerMode="dropdown"
+        android:textColor="@color/edit_text_color" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/spinner_payment"
+        android:layout_alignRight="@+id/spinner_payment"
+        android:src="@drawable/pointer_gray" />
+
+</RelativeLayout>

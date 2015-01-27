@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nc_bg"
+    android:splitMotionEvents="false" >
+
+    <RelativeLayout
+        android:id="@+id/relative_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/nc_tob_bar"
+        android:splitMotionEvents="false" >
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back_btn" />
+
+        <Button
+            android:id="@+id/btn_search_location_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/save_btn"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/btn_search_location_name"
+            android:layout_toRightOf="@+id/btn_back"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.netcabs.customview.NetCabsTextView
+                android:id="@+id/txt_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="Pickup Location"
+                android:textColor="@color/white"
+                android:textSize="23sp"
+                customview:fontName="HELSH__.TTF" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.netcabs.customview.CustomAutoCompleteView
+        android:id="@+id/ed_txt_pickup_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_top"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_top_left"
+        android:background="@drawable/l_text_line"
+        android:completionThreshold="1"
+        android:dropDownVerticalOffset="1dp"
+        android:ems="10"
+        android:hint="@string/pickup_location"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:paddingLeft="3dip"
+        android:textColor="@color/blue" >
+
+        <requestFocus />
+    </com.netcabs.customview.CustomAutoCompleteView>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ed_txt_pickup_location"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

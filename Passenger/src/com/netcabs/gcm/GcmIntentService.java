@@ -1,0 +1,158 @@
+package com.netcabs.gcm;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+
+import android.app.ActivityManager;
+import android.app.IntentService;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
+import android.util.Log;
+import android.widget.RemoteViews;
+
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.netcabs.passenger.R;
+import com.netcabs.passenger.SplashScreenActivity;
+
+public class GcmIntentService extends IntentService {
+
+	public static final int NOTIFICATION_ID = 1;
+	NotificationCompat.Builder builder;
+
+	public GcmIntentService() {
+		super("GcmIntentServive");
+	}
+
+	@Override
+	protected void onHandleIntent(Intent intent) {
+		Bundle extras = intent.getExtras();
+		GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
+
+		String messageType = gcm.getMessageType(intent);
+		
+		if (!extras.isEmpty()) {
+			if (GoogleCloudMessaging.MESSAGE_TYPE_SEND_ERROR.equals(messageType)) {
+				sendNotification("Send error: " + extras.toString(), "", "", "", "", "");
+			} else if (GoogleCloudMessaging.MESSAGE_TYPE_DELETED.equals(messageType)) {
+				sendNotification("Deleted messages on server: " + extras.toString(), "", "", "", "", "");
+			} else if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
+				for (int i = 0; i < 5; i++) {
+					Log.i("", "Working... " + (i + 1) + "/5 @ " + SystemClock.elapsedRealtime());
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						
+					}
+				}
+			}
+			
+			sendNotification(extras.getString("message"), extras.getString("taxi_rego_num"), extras.getString("driver_name"), extras.getString("user_name"), extras.getString("user_image"), extras.getString("taxi_logo_image"));
+			
+			Log.i("Message is ", "____________"+extras.getString("user_image"));
+		}
+
+		GcmBroadcastReceiver.completeWakefulIntent(intent);
+	}
+
+	private void sendNotification(String msg, String taxiModel, String driverName, String passengerName, String passengerImage, String driverImage) {
+		if(msg != null) {
+			/*mNotificationManager = (NotificationManager)this.getSystemService(Context.NOTIFICATION_SERVICE);
+
+	        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, SplashScreenActivity.class), 0);
+
+	        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+	        .setSmallIcon(R.drawable.app_icon)
+	        .setContentTitle(getResources().getString(R.string.app_name))
+	        .setStyle(new NotificationCompat.BigTextStyle()
+	        .bigText(msg))
+	        .setContentText(msg);
+
+	        mBuilder.setContentIntent(contentIntent);
+	        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());*/
+			
+			Intent intent = new Intent(this, SplashScreenActivity.class);
+	    	// Send data to NotificationView Class
+	 
+	    	// Open NotificationView.java Activity
+	    	PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+	    	
+	    	Notification foregroundNote;
+	    	RemoteViews bigView = new RemoteViews(this.getApplicationContext().getPackageName(),R.layout.notification_layout);
+	    	bigView.setTextViewText(R.id.txt_view_msg, "" + msg);
+	    	bigView.setTextViewText(R.id.txt_view_taxi_model, "" + taxiModel);
+	    	bigView.setTextViewText(R.id.txt_view_driver_name, "" + driverName);
+	    	bigView.setTextViewText(R.id.txt_view_passenger_name, "" + passengerName);
+	    	//bigView.setImageViewUri(R.id.imageView2, Uri.parse(msg));
+	    	bigView.setImageViewBitmap(R.id.img_view_driver, getBitmapFromURL(driverImage));
+	    	bigView.setImageViewBitmap(R.id.img_view_passenger, getBitmapFromURL(passengerImage));
+	    	//bigView.setImageViewUri(R.id.imageView2, Uri.parse(msg));
+	    	//bigView.setImageViewResource(R.id.imageView2, R.drawable.add_card_btn);
+	    	//bigView.setOnClickPendingIntent(R.id.imageView6, pIntent);
+	    	  
+	    	Bitmap icon = BitmapFactory.decodeResource(this.getResources(), R.drawable.app_icon);
+
+	    	Notification.Builder mNotifyBuilder = new Notification.Builder(this);
+	    	foregroundNote = mNotifyBuilder.setContentTitle("Oiii")
+	    	        .setContentText(""+msg)
+	    	        .setSmallIcon(R.drawable.app_icon)
+	    	        .setLargeIcon(icon)
+	    	        .setContentIntent(pIntent)
+	    	        .setAutoCancel(true)
+	    	        .build();
+
+	    	foregroundNote.bigContentView = bigView;
+	    	
+	    	PendingIntent contentIntent = null;
+
+	    	NotificationManager mNotifyManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+	    	//mNotifyManager.setAutoCancel(true);
+	    	
+	    	ActivityManager mngr = (ActivityManager) getSystemService( ACTIVITY_SERVICE );
+
+			List<ActivityManager.RunningTaskInfo> taskList = mngr.getRunningTasks(1);
+			ActivityManager.RunningTaskInfo aTask = taskList.get(0);
+			
+			if(aTask.topActivity.getClassName().startsWith("com.netcabs.passenger")){
+				
+			} else {
+				contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, SplashScreenActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+				foregroundNote.contentIntent = contentIntent;
+			}
+			
+			// now show notification..
+			//mNotifyBuilder.setContentIntent(contentIntent);
+			
+			mNotifyManager.notify(1, foregroundNote);
+			//mNotifyManager.cancel(1);
+			
+		}
+	}
+	
+	private Bitmap getBitmapFromURL(String src) {
+	    try {
+	        URL url = new URL(src);
+	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+	        connection.setDoInput(true);
+	        connection.connect();
+	        InputStream input = connection.getInputStream();
+	        Bitmap myBitmap = BitmapFactory.decodeStream(input);
+	        return myBitmap;
+	    } catch (IOException e) {
+	        // Log exception
+	    	Log.i("Exc e ption FB Pic", "" + e.getMessage());
+	        return null;
+	    }
+		
+	}
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="2dp" >
+
+    <ImageView
+        android:id="@+id/img_view_suggestion_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="15dip"
+        android:src="@drawable/list_icon" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="10dip"
+        android:layout_toRightOf="@+id/img_view_suggestion_icon"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="2"
+        android:minLines="2"
+        android:text="Item name here..."
+        android:textColor="@color/blue"
+        android:textSize="15sp"
+        customview:fontName="HELSH__.TTF" />
+
+</RelativeLayout>

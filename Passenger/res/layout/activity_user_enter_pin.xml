@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nc_pin_bg"
+    android:duplicateParentState="true"
+    android:splitMotionEvents="false" >
+
+    <ImageView
+        android:id="@+id/img_view_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/nc_pin_logo"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/linear_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:splitMotionEvents="false" >
+
+        <com.netcabs.customview.CustomEditText
+            android:id="@+id/ed_txt_pin_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pin_holdar"
+            android:gravity="center"
+            android:imeOptions="actionPrevious"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/pin_text_size"
+            android:textStyle="bold"
+            customview:fontName="HELSH__.TTF" >
+
+            <requestFocus />
+        </com.netcabs.customview.CustomEditText>
+
+        <com.netcabs.customview.CustomEditText
+            android:id="@+id/ed_txt_pin_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/pin_holdar"
+            android:gravity="center"
+            android:imeOptions="actionPrevious"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/pin_text_size"
+            android:textStyle="bold"
+            customview:fontName="HELSH__.TTF" >
+        </com.netcabs.customview.CustomEditText>
+
+        <com.netcabs.customview.CustomEditText
+            android:id="@+id/ed_txt_pin_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/pin_holdar"
+            android:gravity="center"
+            android:imeOptions="actionPrevious"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/pin_text_size"
+            android:textStyle="bold"
+            customview:fontName="HELSH__.TTF" >
+        </com.netcabs.customview.CustomEditText>
+
+        <com.netcabs.customview.CustomEditText
+            android:id="@+id/ed_txt_pin_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pin_holdar"
+            android:gravity="center"
+            android:imeOptions="actionPrevious"
+            android:inputType="numberPassword"
+            android:maxLength="1"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/pin_text_size"
+            android:textStyle="bold"
+            customview:fontName="HELSH__.TTF" >
+        </com.netcabs.customview.CustomEditText>
+    </LinearLayout>
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_pin_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_view_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:duplicateParentState="true"
+        android:gravity="center"
+        android:textColor="@color/darkred"
+        customview:fontName="HELSH__.TTF" />
+
+</RelativeLayout>

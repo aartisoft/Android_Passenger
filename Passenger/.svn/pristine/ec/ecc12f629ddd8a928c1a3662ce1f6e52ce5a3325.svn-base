@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#EFF7DF" >
+
+    <ImageView
+        android:id="@+id/img_view_taxi_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/texi_logo" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/img_view_taxi_logo"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/img_view_taxi_logo"
+        android:text="Time 00.00"
+        android:textColor="@color/warmgray11"
+        customview:fontName="HELSH__.TTF" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_view_time"
+        android:layout_below="@+id/txt_view_time"
+        android:layout_marginTop="10dip"
+        android:text="Date 00/00/0000"
+        android:textColor="@color/warmgray11"
+        customview:fontName="HELSH__.TTF" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txt_view_date"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Distance: 00 km"
+        android:textColor="@color/warmgray11"
+        customview:fontName="HELSH__.TTF" />
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_reg_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txt_view_time"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Reg no 0:00000"
+        android:textColor="@color/warmgray11"
+        customview:fontName="HELSH__.TTF" />
+    
+
+    <com.netcabs.customview.NetCabsTextView
+        android:id="@+id/txt_view_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/img_view_taxi_logo"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/price_holdar"
+        android:gravity="center|right"
+        android:paddingRight="10dip"
+        android:text="$ 0000"
+        android:textColor="@color/white"
+        customview:fontName="HELSH__.TTF" />
+
+</RelativeLayout>
